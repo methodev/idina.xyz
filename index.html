@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <title>Иди на хуй, Копейка!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Иди на хуй, Копейка!">
+    <meta name="application-name" content="Иди на хуй, Копейка!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+      html {
+        position: fixed;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 0;
+        user-select: none;
+        font-family: 'Commissioner', sans-serif;
+        color: #1e3c32;
+        text-align: center;
+        -webkit-user-select: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      #portrait {
+        max-width: 75vw;
+        max-height: 75vh;
+        min-width: 150px;
+        min-height: 150px;
+        object-fit: cover;
+        pointer-events: none;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        box-shadow: 0 0 20rem #ccc;
+      }
+
+      @supports (-webkit-touch-callout: none) {
+        #portrait {
+          margin-bottom: 10vh;
+        }
+
+        @media all and (display-mode: browser) {
+          #portrait {
+            margin-bottom: 20vh;
+          }
+        }
+      }
+    </style>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ab002a">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body oncontextmenu="return false">
+    <section>
+      <img id="portrait" src="kopeika.jpg" alt="Иди на хуй, Копейка!" />
+      <h1>Ѝди на xyй, Копейка! 🖕🏻😄</h1>
+    </section>
+    <script type="text/javascript">
+      function iOS() {
+        return [
+          'iPad Simulator',
+          'iPhone Simulator',
+          'iPod Simulator',
+          'iPad',
+          'iPhone',
+          'iPod'
+        ].includes(navigator.platform)
+        // iPad on iOS 13 detection
+        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+      }
+
+      // if (iOS() && !window.navigator.standAlone) {
+      //   document.getElementById('portrait').style.marginBottom = '20vh';
+      // }
+    </script>
+  </body>
+</html>
