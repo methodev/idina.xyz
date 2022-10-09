@@ -22,7 +22,7 @@
           var url = new URL(url_string);
           var target = url.searchParams.get('target');
           var img = url.searchParams.get('img');
-          var src = predefined_images[target] ? predefined_images[target] : img ? img : 'image.jpg';
+          var src = predefined_images[target] ? predefined_images[target] : target && !img ? 'finger.jpg' : img ? img : 'image.jpg';
 
           if (target) {
             var title = target + ', иди на хуй!';
@@ -127,7 +127,7 @@
   <body oncontextmenu="return false">
     <section>
       <img id="portrait" src="image.jpg" alt="Иди на хуй!" />
-      <h1><strong id="target">Русский военный корабль</strong>, иди на xyй!<br>🖕🏻😄</h1>
+      <h1><strong id="target">Русский военный корабль</strong>, иди на xyй!<br>😄</h1>
     </section>
     <script type="text/javascript">
       function iOS() {
