@@ -11,11 +11,38 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Иди на хуй, Копейка!">
-    <meta name="application-name" content="Иди на хуй, Копейка!">
+    <script>
+      window.onload = function () {
+        try {
+          var url_string = (window.location.href).toLowerCase();
+          var url = new URL(url_string);
+          var target = url.searchParams.get('target');
+          var img = url.searchParams.get('img');
+          var src = target === 'Копейка' ? 'kopeika.jpg' : img ? img : 'image.jpg';
+
+          if (target) {
+            var title = 'Иди на хуй, ' + target + '!';
+            document.title = title;
+            document.querySelector('#target').textContent = target;
+          }
+
+          console.log(src);
+
+          document.querySelector('#portrait').setAttribute('src', src)
+
+          document.body.style.opacity = 1;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    </script>
+    <meta name="apple-mobile-web-app-title" content="Иди на хуй!">
+    <meta name="application-name" content="Иди на хуй!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖕🏻</text></svg>">
 
     <style>
       html {
@@ -39,6 +66,7 @@
         text-align: center;
         -webkit-user-select: none;
         -webkit-overflow-scrolling: touch;
+        opacity: 0;
       }
 
       section {
@@ -53,8 +81,6 @@
       }
 
       #portrait {
-        max-width: 75vw;
-        max-height: 75vh;
         min-width: 150px;
         min-height: 150px;
         object-fit: cover;
@@ -62,6 +88,22 @@
         border-radius: 50%;
         border: 1px solid #fff;
         box-shadow: 0 0 20rem #ccc;
+      }
+
+      @media (orientation: landscape) {
+        #portrait {
+          width: 75vh;
+          height: 75vh;
+          max-width: 600px;
+          max-height: 600px;
+        }
+      }
+
+      @media (orientation: portrait) {
+        #portrait {
+          width: 75vw;
+          height: 75vw;
+        }
       }
 
       @supports (-webkit-touch-callout: none) {
@@ -76,19 +118,14 @@
         }
       }
     </style>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ab002a">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
 
   <body oncontextmenu="return false">
     <section>
-      <img id="portrait" src="kopeika.jpg" alt="Иди на хуй, Копейка!" />
-      <h1>Ѝди на xyй, Копейка!<br>🖕🏻😄</h1>
+      <img id="portrait" src="image.jpg" alt="Иди на хуй!" />
+      <h1>Ѝди на xyй, <strong id="target">Русский военный корабль</strong>!<br>🖕🏻😄</h1>
     </section>
     <script type="text/javascript">
       function iOS() {
