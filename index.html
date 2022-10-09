@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="bg">
   <head>
-    <title>Иди на хуй, Копейка!</title>
+    <title>Русский военный корабль, иди на xyй!</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,21 +12,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <script>
+      var predefined_images = {
+        'Копейка': 'kopeika.jpg',
+        'Путин': 'putin.jpg'
+      }
       window.onload = function () {
         try {
           var url_string = (window.location.href).toLowerCase();
           var url = new URL(url_string);
           var target = url.searchParams.get('target');
           var img = url.searchParams.get('img');
-          var src = target === 'Копейка' ? 'kopeika.jpg' : img ? img : 'image.jpg';
+          var src = predefined_images[target] ? predefined_images[target] : img ? img : 'image.jpg';
 
           if (target) {
-            var title = 'Иди на хуй, ' + target + '!';
+            var title = target + ', иди на хуй!';
             document.title = title;
             document.querySelector('#target').textContent = target;
           }
-
-          console.log(src);
 
           document.querySelector('#portrait').setAttribute('src', src)
 
@@ -125,7 +127,7 @@
   <body oncontextmenu="return false">
     <section>
       <img id="portrait" src="image.jpg" alt="Иди на хуй!" />
-      <h1>Ѝди на xyй, <strong id="target">Русский военный корабль</strong>!<br>🖕🏻😄</h1>
+      <h1><strong id="target">Русский военный корабль</strong>, иди на xyй!<br>🖕🏻😄</h1>
     </section>
     <script type="text/javascript">
       function iOS() {
