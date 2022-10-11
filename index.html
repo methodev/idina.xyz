@@ -1,7 +1,15 @@
 <!doctype html>
 <html lang="bg">
   <head>
-    <title>Русский военный корабль, иди на xyй!</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN7VR9Z3K9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'G-FN7VR9Z3K9');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -20,18 +28,14 @@
         try {
           var url_string = (window.location.href).toLowerCase();
           var url = new URL(url_string);
-          var target = url.searchParams.get('target');
+          var targetParam = url.searchParams.get('target');
           var img = url.searchParams.get('img');
-          var src = predefined_images[target] ? predefined_images[target] : target && !img ? 'finger.jpg' : img ? img : 'image.jpg';
+          var src = predefined_images[targetParam] ? predefined_images[targetParam] : targetParam && !img ? 'finger.jpg' : img ? img : 'image.jpg';
+          var target = targetParam || 'Русский военный корабль'
 
-          if (target) {
-            var title = target + ', иди на хуй!';
-            document.title = title;
-            document.querySelector('#target').textContent = target;
-          }
-
+          document.title = target + ', иди на хуй!';
+          document.querySelector('#target').textContent = target;
           document.querySelector('#portrait').setAttribute('src', src)
-
           document.body.style.opacity = 1;
         } catch (e) {
           console.error(e);
@@ -126,8 +130,8 @@
 
   <body oncontextmenu="return false">
     <section>
-      <img id="portrait" src="image.jpg" alt="Иди на хуй!" />
-      <h1><strong id="target">Русский военный корабль</strong>, иди на xyй!<br>😄</h1>
+      <img id="portrait" alt="Иди на хуй!" />
+      <h1><strong id="target"></strong>, иди на xyй!<br>😄</h1>
     </section>
     <script type="text/javascript">
       function iOS() {
